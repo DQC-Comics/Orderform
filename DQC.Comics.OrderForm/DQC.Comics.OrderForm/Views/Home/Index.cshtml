@@ -8,53 +8,14 @@
 
 <div data-ng-app="orderForm">
     <div class="row" data-ng-controller="orderController">
-        <div class="col-lg-7" >
+        <div class="col-lg-3" >
             <div class="form-group">
                 <label for="description">Put in a description of the service you need and a Marvel character will be appointed to you</label>
                 <textarea class="form-control" data-ng-model="orderText" cols="20" rows="8" data-ng-change="orderTextChanged()" placeholder="Describe your problem"></textarea>
                 <div range-slider min="minPrice" max="maxPrice" step="10" prevent-equal-min-max="true" model-min="orderMinPrice" model-max="orderMaxPrice"></div>
             </div>
         </div>
-        <div class="col-lg-2">
-
-            <h2>Your order</h2>
-            <h4>Personal information</h4>
-            <div class="form-group">
-                <label for="mapHolder">Current location</label>
-                <p id="mapHolder"></p>
-            </div>
-            <div class="form-group">
-                <label for="_fullName">Full name</label>
-                <input class="form-control" type="text" id="_fullName" />
-            </div>
-            <div class="form-group">
-                <label for="age">Age</label>
-                <input class="form-control" type="number" id="age" />
-            </div>
-            <div class="form-group">
-                <label for="billingAdress">Billing adress:</label>
-                <input type="text" class="form-control" id="billingAdress" />
-            </div>
-            <div class="form-group">
-                <label for="startDate">Start date of request</label>
-                <input type="datetime" class="form-control" id="startDate" />
-            </div>
-            <div class="form-group">
-                <label for="endDate">End date</label>
-                <input type="datetime" class="form-control" id="endDate" />
-            </div>
-            <div class="form-group">
-                <label for="deliverySectionchk">Is delivery adress the same as billing adress</label>
-                <p></p><input type="checkbox" id="deliverySectionchk" onclick="showMore(this)" />
-                <div id="deliverySection">
-                    <label for="deliveryAdress">Delivery adress:</label>
-                    <input type="text" class="form-control" id="deliveryAdress" />
-                    <label for="zipCode">Zip code</label>
-                    <input type="text" class="form-control" id="zipCode" />
-                    <label for="country">Country</label>
-                    <input type="text" class="form-control" id="country" />
-                </div>
-            </div>
+        <div class="col-lg-3">
             <div class="form-group">
                 <label for="marvelChar">Selected Marvel character</label>
                 <label id="marvelChar"></label>
@@ -65,7 +26,72 @@
                 </ul>
             </div>
         </div>
-
     </div>
-</div>
+    <div class="row">
+        <form class="form-inline">
+            <div class="form-group">
+                <h2>Your order</h2>
+                <h4>Personal information</h4>
+            </div>
+            <div class="form-group">
+                <label for="mapHolder">Your current location is: </label>
+                <label id="mapHolder"></label>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <form class="form-inline">
+            <div class="col">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="_fullName">Full name</label>
+                        <input class="form-control" type="text" id="_fullName" placeholder="Jane doe" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="age">Age</label><input class="form-control" type="number" id="age" placeholder="99" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="billingAdress">Billing adress:</label>
+                    <textarea rows="2" class="form-control" placeholder="Your home adress"></textarea>
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="startDate">Start date of request</label>
+                    <input type="datetime" class="form-control" id="startDate" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="endDate">End date</label>
+                    <input type="datetime" class="form-control" id="endDate" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="deliverySectionchk">Is delivery adress the same as billing adress</label>
+                    <p></p><input type="checkbox" id="deliverySectionchk" onclick="showMore(this)" />
+                    <div id="deliverySection">
+                        <label for="deliveryAdress">Delivery adress:</label>
+                        <input type="text" class="form-control" id="deliveryAdress" />
+                        <label for="zipCode">Zip code</label>
+                        <input type="text" class="form-control" id="zipCode" />
+                        <label for="country">Country</label>
+                        <input type="text" class="form-control" id="country" />
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+        <div class="row" style="padding-top:20px">
+            <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+        </div>
+    </div>
+
 
