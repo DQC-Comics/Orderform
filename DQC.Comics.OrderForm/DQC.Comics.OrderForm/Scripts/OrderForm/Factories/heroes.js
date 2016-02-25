@@ -1,4 +1,4 @@
-﻿orderForm.factory('heroes', function () {
+﻿orderForm.factory('heroes', function ($resource) {
     var factory = {};
 
     factory.query = function () {
