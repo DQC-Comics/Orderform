@@ -31,6 +31,9 @@ namespace DQC.Comics.OrderForm
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/orderform").Include(
+                      "~/Scripts/OrderForm/orderForm.js",
+                      "~/Scripts/OrderForm/Controllers/orderController.js"));
         }
     }
 }
