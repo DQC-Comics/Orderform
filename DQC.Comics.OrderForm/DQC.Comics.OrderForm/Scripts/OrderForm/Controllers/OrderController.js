@@ -10,7 +10,11 @@
 
     $scope.heroes = heroes.query();
 
-    $scope.skills = {};
+    $scope.minPrice = 100;
+    $scope.maxPrice = 999;
+
+    $scope.orderMinPrice = $scope.minPrice;
+    $scope.orderMaxPrice = $scope.maxPrice;
 
     $scope.orderTextChanged = function () {
         $scope.orderText 

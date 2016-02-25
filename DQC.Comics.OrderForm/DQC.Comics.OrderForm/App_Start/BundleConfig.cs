@@ -27,13 +27,15 @@ namespace DQC.Comics.OrderForm
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                       "~/Scripts/angular.js",
-                      "~/Scripts/angular-resource.js"));
+                      "~/Scripts/angular-resource.js",
+                      "~/Scripts/angular.rangeSlider.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/verbalexpressions").Include(
                       "~/Scripts/verbalexpressions.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/angular_rangeSlider.css",
                       "~/Content/site.css"));
             bundles.Add(new ScriptBundle("~/bundles/orderform").Include(
                       "~/Scripts/OrderForm/orderForm.js",
