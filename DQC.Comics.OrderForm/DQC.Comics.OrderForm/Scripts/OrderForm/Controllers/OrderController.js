@@ -1,4 +1,4 @@
-﻿orderForm.controller('orderController', function ($scope) {
+﻿orderForm.controller('orderController', function ($scope, heroes) {
 
     //$scope.skillSet = {
     //    Strong: VerEx(
@@ -8,7 +8,13 @@
     //    $scope.heroes = oData
     //});
 
-    $scope.skills = {};
+    $scope.heroes = heroes.query();
+
+    $scope.minPrice = 100;
+    $scope.maxPrice = 999;
+
+    $scope.orderMinPrice = $scope.minPrice;
+    $scope.orderMaxPrice = $scope.maxPrice;
 
     $scope.orderTextChanged = function () {
         $scope.orderText 

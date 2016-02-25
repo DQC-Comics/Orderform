@@ -1,4 +1,4 @@
-﻿var orderForm = angular.module('orderForm', []);
+﻿var orderForm = angular.module('orderForm', ['ngResource', 'ui-rangeSlider']);
 
 function showMore(e) {
     if (e.checked) {
