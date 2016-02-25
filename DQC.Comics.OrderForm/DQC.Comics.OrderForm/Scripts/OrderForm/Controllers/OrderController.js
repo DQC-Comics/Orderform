@@ -1,9 +1,16 @@
 ﻿orderForm.controller('orderController', function ($scope) {
 
-    $scope.orderText = "hej";
+    //$scope.skillSet = {
+    //    Strong: VerEx(
+    //    Green: ['green']
+    //};
+    //heroes.query(function (oData) {
+    //    $scope.heroes = oData
+    //});
 
-    $scope.orderTextUpdated = function () {
-        i++;
-        //$scope.orderText 
+    $scope.skills = {};
+
+    $scope.orderTextChanged = function () {
+        $scope.orderText 
     }
 });
