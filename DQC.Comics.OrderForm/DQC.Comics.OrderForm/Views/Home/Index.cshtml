@@ -10,16 +10,48 @@
 
 <div data-ng-app="orderForm">
     <div class="row">
-        <div class="col-lg-2" data-ng-controller="orderController">
-            <textarea class="textInput" data-ng-model="orderText" data-ng-change="orderTextChanged()" placeholder="Describe your problem"></textarea>
-        </div>
+        <div class="col-lg-7" data-ng-controller="orderController">
+            <div class="form-group">
+                <textarea class="form-control" data-ng-model="orderText" cols="20" rows="8" data-ng-change="orderTextChanged()" placeholder="Describe your problem"></textarea>
+                </div>
+            </div>
         <div class="col-lg-2">
-			<h3>Your order</h3>
-			<p>Your Location</p>
-			<p id="mapHolder"></p>
-
-			<p class="currentHero"></p> 
-        </div>
+           
+            <h2>Your order</h2>
+            <h4>Personal information</h4>
+            <div class="form-group">
+                <label for="mapHolder">Current location</label> 
+                <p id="mapHolder"></p>
+            </div>
+            <div class="form-group">
+                <label for="_fullName">Full name</label> 
+                <input class="form-control" type="text" id="_fullName" />
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input class="form-control" type="number" id="age" />
+            </div>
+            <div class="form-group">
+                <label for="billingAdress">Billing adress:</label> 
+                <input type="text" class="form-control" id="billingAdress" />
+            </div>
+            <div class="form-group">
+                <label for="deliverySectionchk">Is delivery adress the same as billing adress</label> 
+                <p></p><input type="checkbox" id="deliverySectionchk" onclick="showMore(this)" />
+                        <div id="deliverySection">
+                            <label for="deliveryAdress">Delivery adress:</label> 
+                            <input type="text" class="form-control" id="deliveryAdress" />
+                            <label for="zipCode">Zip code</label> 
+                            <input type="text" class="form-control" id="zipCode" />
+                            <label for="country">Country</label> 
+                            <input type="text" class="form-control" id="country" />
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="marvelChar">Selected Marvel character</label> 
+                            <label id="marvelChar"></label>
+                        </div>
+                        </div>
 
     </div>
 </div>

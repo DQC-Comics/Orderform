@@ -25,3 +25,12 @@ textarea {
 .formArea{
     padding-left: 50px;
 }
+body{
+    background: url("Images/The_Marvel_Universe.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+hr{
+    display:none;
+}
