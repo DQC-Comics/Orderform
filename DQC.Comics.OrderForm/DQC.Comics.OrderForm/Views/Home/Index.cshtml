@@ -11,7 +11,11 @@
         <div class="col-lg-7" >
             <div class="form-group">
                 <textarea class="textInput" data-ng-model="orderText" data-ng-change="orderTextChanged()" placeholder="Describe your problem"></textarea>
-                <div range-slider min="minPrice" max="maxPrice" step="10" prevent-equal-min-max="true" model-min="orderMinPrice" model-max="orderMaxPrice"></div>
+                Max price ($/h)
+                100
+                <input id="priceRange" data-ng-model="priceRange" type="range" min="100" max="500" step="50" value="100" />
+                500
+                {{priceRange}}
             </div>
         </div>
         <div class="col-lg-2">
@@ -36,8 +40,8 @@
             </div>
             <div class="form-group">
                 <label for="deliverySectionchk">Is delivery adress the same as billing adress</label>
-                <p></p><input type="checkbox" id="deliverySectionchk" onclick="showMore(this)" />
-                <div id="deliverySection">
+                <p></p><input type="checkbox" data-ng-model="otherBillingAddress" id="deliverySectionchk" onclick="showMore(this)" />
+                <div id="deliverySection" data-ng-show="otherBillingAddress">
                     <label for="deliveryAdress">Delivery adress:</label>
                     <input type="text" class="form-control" id="deliveryAdress" />
                     <label for="zipCode">Zip code</label>

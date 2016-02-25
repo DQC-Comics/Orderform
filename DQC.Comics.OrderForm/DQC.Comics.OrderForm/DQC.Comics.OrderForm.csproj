@@ -186,7 +186,9 @@
     <Content Include="Content\Images\The_Marvel_Universe.png" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular.rangeSlider.js" />
+    <Content Include="Scripts\OrderForm\Controllers\heroController.js" />
     <Content Include="Scripts\OrderForm\Factories\heroes.js" />
+    <Content Include="Scripts\OrderForm\Factories\orders.js" />
     <Content Include="Scripts\OrderForm\orderForm.js" />
     <Content Include="Scripts\OrderForm\Controllers\orderController.js" />
     <Content Include="Content\bootstrap.css" />

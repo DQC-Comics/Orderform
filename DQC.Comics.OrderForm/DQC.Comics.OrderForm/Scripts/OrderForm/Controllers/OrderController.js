@@ -8,8 +8,6 @@
     //    $scope.heroes = oData
     //});
 
-    $scope.heroes = heroes.query();
-
     $scope.minPrice = 100;
     $scope.maxPrice = 999;
 
