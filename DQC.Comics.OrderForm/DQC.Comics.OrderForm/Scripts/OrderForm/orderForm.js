@@ -1,1 +1,1 @@
-﻿var orderForm = angular.module('orderForm', []);
+﻿var orderForm = angular.module('orderForm', ['ngResource']);

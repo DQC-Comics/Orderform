@@ -12,6 +12,11 @@
     <div class="row">
         <div class="col-lg-2" data-ng-controller="orderController">
             <textarea class="textInput" data-ng-model="orderText" data-ng-change="orderTextChanged()" placeholder="Describe your problem"></textarea>
+            <ul class="unstyled">
+                <li data-ng-repeat="hero in heroes | orderBy: 'Name'">
+                    <label for="hero-{{hero.Id}}">{{hero.Name}}</label>
+                </li>
+            </ul>
         </div>
         <div class="col-lg-2">
 			<h3>Your order</h3>

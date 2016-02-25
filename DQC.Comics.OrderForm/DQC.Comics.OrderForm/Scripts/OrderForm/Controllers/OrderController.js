@@ -1,4 +1,4 @@
-﻿orderForm.controller('orderController', function ($scope) {
+﻿orderForm.controller('orderController', function ($scope, heroes) {
 
     //$scope.skillSet = {
     //    Strong: VerEx(
@@ -7,6 +7,8 @@
     //heroes.query(function (oData) {
     //    $scope.heroes = oData
     //});
+
+    $scope.heroes = heroes.query();
 
     $scope.skills = {};
 
