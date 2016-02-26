@@ -34,3 +34,6 @@ body{
 hr{
     display:none;
 }
+._logo{
+    padding-top: 15px; 
+}
