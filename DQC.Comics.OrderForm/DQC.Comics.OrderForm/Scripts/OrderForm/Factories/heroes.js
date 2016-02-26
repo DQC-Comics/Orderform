@@ -1,5 +1,5 @@
 ﻿orderForm.factory('heroes', function ($resource) {
-    return $resource("http://dqccsomics-webapi.azurewebsites.net/api/Heroes/:id", { '$orderby': 'Title asc' }, { query: { isArray: false } });
+    return $resource("https://dqccsomics-webapi.azurewebsites.net/api/Heroes/:id", { '$orderby': 'Title asc' }, { query: { isArray: false } });
     //var factory = {};
 
     //factory.query = function () {

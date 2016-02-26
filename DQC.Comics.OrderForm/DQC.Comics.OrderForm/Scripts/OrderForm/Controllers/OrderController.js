@@ -1,5 +1,14 @@
-﻿orderForm.controller('orderController', function ($scope, heroes) {
+﻿orderForm.controller('orderController', function ($scope, heroes, orders) {
 
+    $scope.heroes = [];
+
+    heroes.query(function (oData) {
+        $scope.heroes = oData.value;
+    });
+
+    $scope.priceMax = 1000;
+    $scope.priceMin = 100;
+    $scope.maxPriceValue = $scope.priceMax;
     //$scope.skillSet = {
     //    Strong: VerEx(
     //    Green: ['green']
@@ -8,13 +17,11 @@
     //    $scope.heroes = oData
     //});
 
-    $scope.minPrice = 100;
-    $scope.maxPrice = 999;
-
-    $scope.orderMinPrice = $scope.minPrice;
-    $scope.orderMaxPrice = $scope.maxPrice;
-
     $scope.orderTextChanged = function () {
         $scope.orderText 
+    }
+
+    $scope.priceRangeChanged = function () {
+        $scope.orderText
     }
 });
