@@ -35,35 +35,38 @@
         </div>
     </div>
     <div class="row">
-        <form class="form-inline">
+        
             <div class="form-group">
-            <h2>Your order</h2>
-            <h4>Personal information</h4>
+                <div class="col-md-3">
+                <h2>Your order</h2>
+                <h4>Personal information</h4>
             </div>
+                </div>
+            <div class="col-md-3">
             <div class="form-group">
                 <label for="mapHolder">Your current location is: </label>
                 <label id="mapHolder"></label>
             </div>
-        </form>
-            </div>
+    </div>
+    </div>
     <div class="row">
         <form class="form-inline">
             <div class="col">
                 <div class="col-md-2">
-            <div class="form-group">
-                <label for="_fullName">Full name</label>
+                    <div class="form-group">
+                        <label for="_fullName">Full name</label>
                         <input class="form-control" type="text" id="_fullName" placeholder="Jane doe" />
                     </div>
                 </div>
             </div>
             <div class="col-md-2">
-            <div class="form-group">
+                <div class="form-group">
                     <label for="age">Age</label><input class="form-control" type="number" id="age" placeholder="99" />
-            </div>
+                </div>
             </div>
             <div class="col-md-2">
-            <div class="form-group">
-                <label for="billingAdress">Billing adress:</label>
+                <div class="form-group">
+                    <label for="billingAdress">Billing adress:</label>
                     <textarea rows="2" class="form-control" placeholder="Your home adress"></textarea>
 
                 </div>
@@ -81,24 +84,26 @@
                 </div>
             </div>
             <div class="col-md-2">
-            <div class="form-group">
-                <label for="deliverySectionchk">Is delivery adress the same as billing adress</label>
+                <div class="form-group">
+                    <label for="deliverySectionchk">Is delivery adress the same as billing adress</label>
                 <p></p><input type="checkbox" data-ng-model="otherBillingAddress" id="deliverySectionchk" onclick="showMore(this)" />
                 <div id="deliverySection" data-ng-show="otherBillingAddress">
-                    <label for="deliveryAdress">Delivery adress:</label>
-                    <input type="text" class="form-control" id="deliveryAdress" />
-                    <label for="zipCode">Zip code</label>
-                    <input type="text" class="form-control" id="zipCode" />
-                    <label for="country">Country</label>
-                    <input type="text" class="form-control" id="country" />
+                        <label for="deliveryAdress">Delivery adress:</label>
+                        <input type="text" class="form-control" id="deliveryAdress" />
+                        <label for="zipCode">Zip code</label>
+                        <input type="text" class="form-control" id="zipCode" />
+                        <label for="country">Country</label>
+                        <input type="text" class="form-control" id="country" />
+                    </div>
                 </div>
-            </div>
             </div>
         </form>
         </div>
         <div class="row" style="padding-top:20px">
-            <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+            <div class="col-md-2">
+                <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
     </div>
-</div>
 
 

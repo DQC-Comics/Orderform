@@ -2091,8 +2091,8 @@ fieldset[disabled] .btn-default.active {
 
 .btn-primary {
   color: #ffffff;
-  background-color: #428bca;
-  border-color: #357ebd;
+  background-color: #D20001;
+  border-color: #D20001;
 }
 
 .btn-primary:hover,
@@ -4500,10 +4500,10 @@ textarea.input-group-sm > .input-group-btn > .btn {
   color: #333333;
 }
 
-.navbar-inverse {
+/*.navbar-inverse {
   background-color: #222222;
   border-color: #080808;
-}
+}*/
 
 .navbar-inverse .navbar-brand {
   color: #999999;
