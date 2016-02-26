@@ -1,1 +1,1 @@
-﻿var orderForm = angular.module('orderForm', ['ngResource', 'ui-rangeSlider']);
+﻿var orderForm = angular.module('orderForm', ['ngResource', 'ui.bootstrap', 'ngAnimate']);

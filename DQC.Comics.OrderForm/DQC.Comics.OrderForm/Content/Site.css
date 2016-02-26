@@ -28,12 +28,16 @@ textarea {
 body{
     background: url("Images/The_Marvel_Universe.png");
     background-repeat: no-repeat;
-    background-size: cover;
-    
+    background-size: 100% 100%;
+    background-position: center center; 
 }
 hr{
     display:none;
 }
 ._logo{
     padding-top: 15px; 
+}
+
+.panel-group .panel .header-img{
+    height: 40px;
 }

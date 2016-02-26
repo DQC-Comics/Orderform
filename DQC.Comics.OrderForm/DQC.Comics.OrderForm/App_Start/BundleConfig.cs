@@ -28,7 +28,9 @@ namespace DQC.Comics.OrderForm
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                       "~/Scripts/angular.js",
                       "~/Scripts/angular-resource.js",
-                      "~/Scripts/angular.rangeSlider.js"));
+                      "~/Scripts/angular.rangeSlider.js",
+                      "~/Scripts/angular-animate.js",
+                      "~/Scripts/angular-ui/ui-bootstrap-tpls.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/verbalexpressions").Include(
                       "~/Scripts/verbalexpressions.js"));

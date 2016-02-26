@@ -7,103 +7,136 @@
 </div>
 
 <div data-ng-app="orderForm">
-    <div class="row" data-ng-controller="orderController">
-        <div class="col-lg-3" >
-            <div class="form-group">
-                <label for="description">Put in a description of the service you need and a Marvel character will be appointed to you</label>
-                <textarea class="form-control" data-ng-model="orderText" cols="20" rows="8" data-ng-change="orderTextChanged()" placeholder="Describe your problem"></textarea>
-                <div data-ng-show="heroes.length > 0">
-                    Max price ($/h)
-                    {{priceMin}}
-                    <input id="priceRange" data-ng-model="priceRange" type="range" min="{{priceMin}}" data-ng-change="priceRangeChanged()" max="{{priceMax}}" step="50" />
-                    {{priceMax}}
-                    {{priceRange}}
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3" data-ng-controller="heroController">
-            <div class="form-group">
-                <label for="marvelChar">Selected Marvel character</label>
-                <label id="marvelChar"></label>
-                <ul class="unstyled">
-                    <li data-ng-repeat="hero in heroes | orderBy: 'Name'">
-                        <label for="hero-{{hero.Id}}">{{hero.Name}}</label>
-                        <img id="heroImage-{{hero.Id}}" />
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        
-            <div class="form-group">
-                <div class="col-md-3">
-                <h2>Your order</h2>
-                <h4>Personal information</h4>
-            </div>
-                </div>
-            <div class="col-md-3">
-            <div class="form-group">
-                <label for="mapHolder">Your current location is: </label>
-                <label id="mapHolder"></label>
-            </div>
-    </div>
-    </div>
-    <div class="row">
-        <form class="form-inline">
-            <div class="col">
-                <div class="col-md-2">
-                    <div class="form-group">
-                        <label for="_fullName">Full name</label>
-                        <input class="form-control" type="text" id="_fullName" placeholder="Jane doe" />
+    <div data-ng-controller="orderController">
+        <uib-accordion ng-hide="orderDone">
+            <uib-accordion-group heading="Choose your Super Hero" is-open="selectAccOpen">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="description">Put in a description of the service you need and a Marvel character will be appointed to you</label>
+                            <textarea class="form-control" data-ng-model="order.Description" cols="20" rows="8" data-ng-change="orderTextChanged()" placeholder="Describe your problem"></textarea>
+                            <div data-ng-show="heroes.length > 0">
+                                Max price ($/h)
+                                {{priceMin}}
+                                <input id="priceRange" data-ng-model="maxPriceValue" type="range" min="{{priceMin}}" data-ng-change="priceRangeChanged()" max="{{priceMax}}" step="50" />
+                                {{priceMax}}
+                                {{maxPriceValue}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <label for="marvelChar">Selected Marvel character</label>
+                            <label id="marvelChar"></label>
+                            <uib-accordion>
+                                <uib-accordion-group heading="{{hero.Name}}" ng-repeat="hero in heroes | filter:byRange(maxPriceValue) || orderBy: 'Name'">
+                                    <uib-accordion-heading class="accordion-heading">
+                                        <img id="heroImage-{{hero.Id}}" src="https://i.annihil.us/u/prod/marvel/i/mg/c/10/537ba5ff07aa4/standard_xlarge.jpg" class="img-circle header-img" />
+                                        {{hero.Name}}
+                                    </uib-accordion-heading>
+                                    <div>
+                                        <img id="heroImage-{{hero.Id}}" src="https://i.annihil.us/u/prod/marvel/i/mg/c/10/537ba5ff07aa4/standard_xlarge.jpg" class="img-circle" />
+                                    </div>
+                                    <div>
+                                        {{hero.Description}}
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-primary" data-ng-click="selectHero(hero.Id)">Select</button>
+                                    </div>
+                                </uib-accordion-group>
+                            </uib-accordion>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="age">Age</label><input class="form-control" type="number" id="age" placeholder="99" />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="billingAdress">Billing adress:</label>
-                    <textarea rows="2" class="form-control" placeholder="Your home adress"></textarea>
+            </uib-accordion-group>
+            <uib-accordion-group heading="Your Order" is-open="orderAccOpen">
+                <div class="row">
 
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="startDate">Start date of request</label>
-                    <input type="datetime" class="form-control" id="startDate" />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="endDate">End date</label>
-                    <input type="datetime" class="form-control" id="endDate" />
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="deliverySectionchk">Is delivery adress the same as billing adress</label>
-                <p></p><input type="checkbox" data-ng-model="otherBillingAddress" id="deliverySectionchk" onclick="showMore(this)" />
-                <div id="deliverySection" data-ng-show="otherBillingAddress">
-                        <label for="deliveryAdress">Delivery adress:</label>
-                        <input type="text" class="form-control" id="deliveryAdress" />
-                        <label for="zipCode">Zip code</label>
-                        <input type="text" class="form-control" id="zipCode" />
-                        <label for="country">Country</label>
-                        <input type="text" class="form-control" id="country" />
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <h2>Your order</h2>
+                            <h4>Personal information</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="mapHolder">Your current location is: </label>
+                            <label id="mapHolder">{{currentLocation}}</label>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
-        </div>
-        <div class="row" style="padding-top:20px">
-            <div class="col-md-2">
-                <button class="btn btn-primary">Submit</button>
-            </div>
+                <div class="row">
+                    <form class="form-inline">
+                        <div class="col">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="_fullName">Full name</label>
+                                    <input class="form-control" data-ng-model="order.CustomerId" type="text" id="_fullName" placeholder="Peter Parker" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="age">Age</label><input class="form-control" type="number" id="age" placeholder="99" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="billingAdress">Billing adress:</label>
+                                <textarea rows="2" class="form-control" placeholder="Forest Hills, New York"></textarea>
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="startDate">Start date of request</label>
+                                <p class="input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="order.StartTime" is-open="startDate.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="startDate.opened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="endDate">End date</label>
+                                <p class="input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="order.EndTime" is-open="endDate.opened" datepicker-options="dateOptions" close-text="Close" alt-input-formats="altInputFormats" />
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="endDate.opened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="deliverySectionchk">Is delivery adress the same as billing adress</label>
+                                <p></p><input type="checkbox" data-ng-model="otherBillingAddress" id="deliverySectionchk" onclick="showMore(this)" />
+                                <div id="deliverySection" data-ng-show="otherBillingAddress">
+                                    <label for="deliveryAdress">Delivery adress:</label>
+                                    <input type="text" class="form-control" id="deliveryAdress" />
+                                    <label for="zipCode">Zip code</label>
+                                    <input type="text" class="form-control" id="zipCode" />
+                                    <label for="country">Country</label>
+                                    <input type="text" class="form-control" id="country" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row" style="padding-top:20px">
+                    <div class="col-md-2">
+                        <button class="btn btn-primary" data-ng-click="saveOrder()">Submit</button>
+                    </div>
+                </div>
+            </uib-accordion-group>
+        </uib-accordion>
+        <div ng-show="orderDone">
+            Thanks!
+            <img src="~/Content/Images/fistbump.jpg" />
         </div>
     </div>
+</div>
 
 
