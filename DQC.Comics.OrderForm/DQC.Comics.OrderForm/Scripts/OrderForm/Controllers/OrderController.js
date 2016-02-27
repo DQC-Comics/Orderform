@@ -13,20 +13,6 @@
     $scope.order.EndTime = new Date();
     $scope.order.EndTime.setDate(new Date().getDate() + 1)
 
-    heroes.query(function (data) {
-        $scope.heroes = data;
-
-        var priceRange = $scope.heroes.map(function (h) { return h.DebitPrice; });
-
-        $scope.priceMax = Math.max.apply(Math, priceRange);
-        $scope.priceMin = Math.min.apply(Math, priceRange);
-
-        $timeout(function () {
-            $scope.maxPriceValue = $scope.priceMax;
-        });
-
-    });
-
     $scope.byRange = function (maxValue) {
         if (maxValue === undefined) maxValue = Number.MAX_VALUE;
 
@@ -36,11 +22,19 @@
     };
 
     $scope.orderTextChanged = function () {
-        $scope.orderText
-    };
+        heroes.query(function (data) {
+            $scope.heroes = data;
 
-    $scope.priceRangeChanged = function () {
-        $scope.orderText
+            var priceRange = $scope.heroes.map(function (h) { return h.DebitPrice; });
+
+            $scope.priceMax = Math.max.apply(Math, priceRange);
+            $scope.priceMin = Math.min.apply(Math, priceRange);
+
+            $timeout(function () {
+                $scope.maxPriceValue = $scope.priceMax;
+            });
+
+        });
     };
 
     $scope.saveOrder = function () {
@@ -63,7 +57,7 @@
     $scope.getPosition = function (position) {
         $scope.order.Location = position.coords.latitude + "," + position.coords.longitude;
        
-        var adress = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + $scope.order.Location + "&sensor=true";
+        var adress = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + $scope.order.Location + "&sensor=true";
         $.getJSON(adress, function (data) {
             $scope.currentLocation = data.results[1].formatted_address;
             $scope.order.Country = data.results[3].address_components[1].long_name;
